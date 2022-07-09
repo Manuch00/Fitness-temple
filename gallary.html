@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Temple</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/main-section.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .preloader {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgb(205 185 185);
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .loader {
+            border: 5px solid #000000;
+            border-radius: 50%;
+            border-top: 5px solid #f50c0c;
+            border-bottom: 5px solid blue;
+
+
+            width: 30px;
+            height: 30px;
+            /* -webkit-animation: spin 0.5s linear infinite; */
+            /* Safari */
+            animation: spin 0.5s linear infinite;
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hideloader {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-left">
+            <ul class="nav-items">
+                <li><a href="index.html">Home</a></li>
+                <li><a style="color:rgb(255, 78, 8)" href="gallary.html">gallary</a></li>
+                <li><a href="about.html">About-us</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div id="btn1"><a href="register.html">Join Now</a></div>
+        </div>
+    </nav>
+    <section class="main-section">
+        <div class="slider">
+            <div class="slides">
+                <img src="img/g3.jpg" id="slide" alt="">
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-box">
+
+            <div id="foot">
+                <a href="#"><img src="img/instagram.jpg" alt=""></a>
+                <a href="#"><img src="img/fb.png" alt=""></a>
+                <a href="#"><img src="img/twitter.png" alt=""></a>
+            </div>
+            <h1>Fitness Temple © 2021 </h1>
+        </div>
+    </footer>
+    <script>
+        let loader = document.querySelector('.preloader');
+        window.addEventListener('load', function () {
+            loader.classList.add("hideloader");
+        });
+        var images = ["img/g1.jpg", "img/g2.jpg", "img/g3.jpg", "img/g4.jpg", "img/g5.jpg", "img/g6.jpg"];
+        var i = 0;
+        function slider() {
+            document.getElementById('slide').src = images[i];
+            if (i < 5)
+                i++;
+            else
+                i = 0;
+        }
+        setInterval(slider, 1000);
+    </script>
+</body>
+
+</html>
